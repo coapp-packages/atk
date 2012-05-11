@@ -11,8 +11,8 @@
 
 x86 {
 	requires: {
-		"glib-dev[vc10]-2.28.8-x86-1e373a58e25250cb",
-		"libintl-dev[vc10]-0.18.1-x86-1e373a58e25250cb",
+		"glib-dev[vc10]-${glib-dep-version}-x86-${glib-dep-publickeytoken}",
+		"libintl-dev[vc10]-${libintl-dep-version}-x86-${libintl-dep-publickeytoken}",
 	};
 
 	platform: x86;
@@ -42,4 +42,25 @@ x86 {
 
 release {
 	uses: x86;
+}
+
+test {
+}
+
+package {
+	uses: release;
+
+	build-command: @"
+        cd COPKG
+        autopackage atk.autopkg || goto failed
+	";
+
+	targets: {
+		@"COPKG\atk[vc10]-${package-version}-x86.msi",
+	};
+
+	clean-command: @"
+		del COPKG\*.msi
+		del COPKG\*.wixpdb
+	";
 }
