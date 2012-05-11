@@ -31,7 +31,7 @@ requires {
 }
 
 metadata {  
-    summary: "ATK"; // or a more user-friendly name
+    summary: "ATK";
     description: @"ATK is a library that GUI toolkits and applications can use to interact with Accessibility frameworks.";
     author-version : "${author-version}";
     bug-tracker: "https://github.com/coapp-packages/atk/issues";

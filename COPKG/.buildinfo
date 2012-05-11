@@ -52,11 +52,13 @@ package {
 
 	build-command: @"
         cd COPKG
+        autopackage atk-dev-common.autopkg || goto failed
         autopackage atk.autopkg || goto failed
 	";
 
 	targets: {
 		@"COPKG\atk[vc10]-${package-version}-x86.msi",
+		@"COPKG\atk-dev-common-${package-version}-any.msi",
 	};
 
 	clean-command: @"

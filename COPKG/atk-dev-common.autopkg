@@ -1,0 +1,48 @@
+@import "version.inc";
+@import "compat.inc";
+@import "outercurve.inc";
+
+package {
+    name: "atk-dev-common";
+    version: "${package-version}";
+    arch : "any";
+
+    display-name: "Accessibility Toolkit (ATK)-Dev-Common";
+    location: "http://coapp.org/repository/${OutputFilename}";
+
+    feed: "http://coapp.org/repository/packages.atom.xml";
+    publisher: "CoApp Project";
+}
+
+license[LGPL2] {
+	license: @"..\COPYING";
+	license-url: "http://www.gnu.org/licenses/old-licenses/lgpl-2.0.html";
+	license-type: "LGPL";
+}
+
+metadata {  
+    summary: "ATK";
+    description: @"ATK is a library that GUI toolkits and applications can use to interact with Accessibility frameworks.";
+    author-version : "${author-version}";
+    bug-tracker: "https://github.com/coapp-packages/atk/issues";
+    stability : "0";
+    licenses : {
+        LGPL2
+    };
+}
+
+files[headers] {
+    root: @"..\vs10\Win32\include\atk-1.0";
+
+    include: {
+        "atk\*.h",
+    };
+
+    trim-path: none;
+};
+
+developer-library[atk] {
+    headers: { 
+        headers
+    };
+}
