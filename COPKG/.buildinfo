@@ -39,3 +39,7 @@ x86 {
 		del config.h
 	";
 }
+
+release {
+	uses: x86;
+}
