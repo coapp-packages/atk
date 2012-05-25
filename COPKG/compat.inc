@@ -1,5 +1,5 @@
 compatability-policy {
-    minimum: "2.2.0.0";
+    minimum: "2.2.0.2";
     maximum: "${OneLessThanCurrent}";
     versions : {
     };
