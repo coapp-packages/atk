@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AtkTable</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="AtkStreamableContent.html" title="AtkStreamableContent">
 <link rel="next" href="AtkText.html" title="AtkText">
-<meta name="generator" content="GTK-Doc V1.17.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -425,7 +425,7 @@ Gets the caption for the <em class="parameter"><code>table</code></em>.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a AtkObject* representing the table caption, or
-<a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+<a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
 </td>
 </tr>
 </tbody>
@@ -453,7 +453,7 @@ Gets the description text of the specified <em class="parameter"><code>column</c
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a gchar* representing the column description, or <a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
+<td>a gchar* representing the column description, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
 if value does not implement this interface.</td>
 </tr>
 </tbody>
@@ -481,7 +481,7 @@ Gets the description text of the specified row in the table
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a gchar* representing the row description, or <a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
+<td>a gchar* representing the row description, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
 if value does not implement this interface.</td>
 </tr>
 </tbody>
@@ -509,7 +509,7 @@ Gets the column header of a specified column in an accessible table.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a AtkObject* representing the specified column
-header, or <a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+header, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
 </td>
 </tr>
 </tbody>
@@ -537,7 +537,7 @@ Gets the row header of a specified row in an accessible table.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a AtkObject* representing the specified row
-header, or <a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+header, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
 </td>
 </tr>
 </tbody>
@@ -1115,7 +1115,7 @@ AtkTable interface when the model displayed by the table changes.
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
 The "row-deleted" signal is emitted by an object which implements the
-AtkTable interface when a column is inserted.
+AtkTable interface when a row is deleted.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1148,7 +1148,7 @@ AtkTable interface when a column is inserted.
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
 The "row-inserted" signal is emitted by an object which implements the
-AtkTable interface when a column is inserted.
+AtkTable interface when a row is inserted.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1159,11 +1159,11 @@ AtkTable interface when a column is inserted.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
-<td>The index of the first row deleted.</td>
+<td>The index of the first row inserted.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
-<td>The number of rows deleted.</td>
+<td>The number of rows inserted.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -1179,7 +1179,7 @@ AtkTable interface when a column is inserted.
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
 The "row-reordered" signal is emitted by an object which implements the
-AtkTable interface when the columns are reordered.
+AtkTable interface when the rows are reordered.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1205,6 +1205,6 @@ AtkTable interface when the columns are reordered.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17.1</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

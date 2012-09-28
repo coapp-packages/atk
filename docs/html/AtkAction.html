@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AtkAction</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="atk.html" title="ATK Library">
 <link rel="next" href="AtkComponent.html" title="AtkComponent">
-<meta name="generator" content="GTK-Doc V1.17.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -169,9 +169,6 @@ implement this interface.</td>
 <a name="atk-action-get-description"></a><h3>atk_action_get_description ()</h3>
 <pre class="programlisting">const <span class="returnvalue">gchar</span> *       atk_action_get_description          (<em class="parameter"><code><a class="link" href="AtkAction.html" title="AtkAction"><span class="type">AtkAction</span></a> *action</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> i</code></em>);</pre>
-<p>
-Returns a description of the specified action of the object.
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -185,7 +182,7 @@ Returns a description of the specified action of the object.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a description string, or <a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
+<td>a description string, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
 if <em class="parameter"><code>action</code></em> does not implement this interface.</td>
 </tr>
 </tbody>
@@ -196,23 +193,6 @@ if <em class="parameter"><code>action</code></em> does not implement this interf
 <a name="atk-action-get-name"></a><h3>atk_action_get_name ()</h3>
 <pre class="programlisting">const <span class="returnvalue">gchar</span> *       atk_action_get_name                 (<em class="parameter"><code><a class="link" href="AtkAction.html" title="AtkAction"><span class="type">AtkAction</span></a> *action</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> i</code></em>);</pre>
-<p>
-Returns a non-localized string naming the specified action of the 
-object. This name is generally not descriptive of the end result 
-of the action, but instead names the 'interaction type' which the 
-object supports. By convention, the above strings should be used to 
-represent the actions which correspond to the common point-and-click 
-interaction techniques of the same name: i.e. 
-"click", "press", "release", "drag", "drop", "popup", etc.
-The "popup" action should be used to pop up a context menu for the 
-object, if one exists.
-</p>
-<p>
-For technical reasons, some toolkits cannot guarantee that the 
-reported action is actually 'bound' to a nontrivial user event;
-i.e. the result of some actions via <a class="link" href="AtkAction.html#atk-action-do-action" title="atk_action_do_action ()"><code class="function">atk_action_do_action()</code></a> may be
-NIL.
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -226,7 +206,7 @@ NIL.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a name string, or <a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
+<td>a name string, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
 if <em class="parameter"><code>action</code></em> does not implement this interface.</td>
 </tr>
 </tbody>
@@ -237,9 +217,6 @@ if <em class="parameter"><code>action</code></em> does not implement this interf
 <a name="atk-action-get-localized-name"></a><h3>atk_action_get_localized_name ()</h3>
 <pre class="programlisting">const <span class="returnvalue">gchar</span> *       atk_action_get_localized_name       (<em class="parameter"><code><a class="link" href="AtkAction.html" title="AtkAction"><span class="type">AtkAction</span></a> *action</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> i</code></em>);</pre>
-<p>
-Returns the localized name of the specified action of the object.
-</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -253,7 +230,7 @@ Returns the localized name of the specified action of the object.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a name string, or <a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
+<td>a name string, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
 if <em class="parameter"><code>action</code></em> does not implement this interface.</td>
 </tr>
 </tbody>
@@ -265,17 +242,34 @@ if <em class="parameter"><code>action</code></em> does not implement this interf
 <pre class="programlisting">const <span class="returnvalue">gchar</span> *       atk_action_get_keybinding           (<em class="parameter"><code><a class="link" href="AtkAction.html" title="AtkAction"><span class="type">AtkAction</span></a> *action</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> i</code></em>);</pre>
 <p>
-Returns a keybinding associated with this action, if one exists.
-The returned string is in the format "&lt;a&gt;;&lt;b&gt;;&lt;c&gt;"
-(i.e. semicolon-delimited), where &lt;a&gt; is the keybinding which
-activates the object if it is presently enabled onscreen, 
-&lt;b&gt; corresponds to the keybinding or sequence of keys
-which invokes the action even if the relevant element is not
-currently posted on screen (for instance, for a menu item it
-posts the parent menus before invoking).  The last token in the
-above string, if non-empty, represents a keyboard shortcut which
-invokes the same action without posting the component or its
-enclosing menus or dialogs.
+Gets the keybinding which can be used to activate this action, if one
+exists. The string returned should contain localized, human-readable,
+key sequences as they would appear when displayed on screen. It must
+be in the format "mnemonic;sequence;shortcut".
+</p>
+<p>
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>The mnemonic key activates the object if it is presently enabled onscreen.
+  This typically corresponds to the underlined letter within the widget.
+  Example: "n" in a traditional "New..." menu item or the "a" in "Apply" for
+  a button.</p></li>
+<li class="listitem"><p>The sequence is the full list of keys which invoke the action even if the
+  relevant element is not currently shown on screen. For instance, for a menu
+  item the sequence is the keybindings used to open the parent menus before
+  invoking. The sequence string is colon-delimited. Example: "Alt+F:N" in a
+  traditional "New..." menu item.</p></li>
+<li class="listitem"><p>The shortcut, if it exists, will invoke the same action without showing
+  the component or its enclosing menus or dialogs. Example: "Ctrl+N" in a
+  traditional "New..." menu item.</p></li>
+</ul></div>
+<p>
+</p>
+<p>
+Example: For a traditional "New..." menu item, the expected return value
+would be: "N;Alt+F:N;Ctrl+N" for the English locale and "N;Alt+D:N;Strg+N"
+for the German locale. If, hypothetically, this menu item lacked a mnemonic,
+it would be represented by ";;Ctrl+N" and ";;Strg+N" respectively.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -290,7 +284,7 @@ enclosing menus or dialogs.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a string representing the available keybindings, or <a href="../liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
+<td>the keybinding which can be used to activate this action, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
 if there is no keybinding for this action.</td>
 </tr>
 </tbody>
@@ -331,6 +325,6 @@ Sets a description of the specified action of the object.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17.1</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

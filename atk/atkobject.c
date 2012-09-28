@@ -545,7 +545,7 @@ atk_object_class_init (AtkObjectClass *klass)
                                                         _("The accessible role of this object"),
                                                         0,
                                                         G_MAXINT,
-                                                        0,
+                                                        ATK_ROLE_UNKNOWN,
                                                         G_PARAM_READWRITE));
   g_object_class_install_property (gobject_class,
                                    PROP_LAYER,
@@ -996,13 +996,17 @@ atk_object_get_index_in_parent (AtkObject *accessible)
  * @accessible: an #AtkObject
  * @name: a character string to be set as the accessible name
  *
- * Sets the accessible name of the accessible.
+ * Sets the accessible name of the accessible. You can't set the name
+ * to NULL. This is reserved for the initial value. In this aspect
+ * NULL is similar to ATK_ROLE_UNKNOWN. If you want to set the name to
+ * a empty value you can use "".
  **/
 void
 atk_object_set_name (AtkObject    *accessible,
                      const gchar  *name)
 {
   AtkObjectClass *klass;
+  gboolean notify = FALSE;
 
   g_return_if_fail (ATK_IS_OBJECT (accessible));
   g_return_if_fail (name != NULL);
@@ -1010,8 +1014,12 @@ atk_object_set_name (AtkObject    *accessible,
   klass = ATK_OBJECT_GET_CLASS (accessible);
   if (klass->set_name)
     {
+      /* Do not notify for initial name setting. See bug 665870 */
+      notify = (accessible->name != NULL);
+
       (klass->set_name) (accessible, name);
-      g_object_notify (G_OBJECT (accessible), atk_object_name_property_name);
+      if (notify)
+        g_object_notify (G_OBJECT (accessible), atk_object_name_property_name);
     }
 }
 
@@ -1020,13 +1028,17 @@ atk_object_set_name (AtkObject    *accessible,
  * @accessible: an #AtkObject
  * @description: a character string to be set as the accessible description
  *
- * Sets the accessible description of the accessible.
+ * Sets the accessible description of the accessible. You can't set
+ * the description to NULL. This is reserved for the initial value. In
+ * this aspect NULL is similar to ATK_ROLE_UNKNOWN. If you want to set
+ * the name to a empty value you can use "".
  **/
 void
 atk_object_set_description (AtkObject   *accessible,
                             const gchar *description)
 {
   AtkObjectClass *klass;
+  gboolean notify = FALSE;
 
   g_return_if_fail (ATK_IS_OBJECT (accessible));
   g_return_if_fail (description != NULL);
@@ -1034,8 +1046,13 @@ atk_object_set_description (AtkObject   *accessible,
   klass = ATK_OBJECT_GET_CLASS (accessible);
   if (klass->set_description)
     {
+      /* Do not notify for initial name setting. See bug 665870 */
+      notify = (accessible->description != NULL);
+
       (klass->set_description) (accessible, description);
-      g_object_notify (G_OBJECT (accessible), atk_object_name_property_description);
+      if (notify)
+        g_object_notify (G_OBJECT (accessible),
+                         atk_object_name_property_description);
     }
 }
 
@@ -1619,7 +1636,8 @@ atk_object_add_relationship (AtkObject       *object,
   g_return_val_if_fail (ATK_IS_OBJECT (object), FALSE);
   g_return_val_if_fail (ATK_IS_OBJECT (target), FALSE);
 
-  if (atk_relation_set_contains (object->relation_set, relationship))
+  if (atk_relation_set_contains_target (object->relation_set,
+                                        relationship, target))
     return FALSE;
 
   array[0] = target;
