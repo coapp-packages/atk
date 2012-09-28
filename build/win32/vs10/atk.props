@@ -3,7 +3,7 @@
   <PropertyGroup Label="UserMacros">
     <AtkApiVersion>1.0</AtkApiVersion>
     <AtkDummyPrefix>\"/dummy\"</AtkDummyPrefix>
-    <AtkEtcInstallRoot>..\..\..\..\..\vs10\$(Platform)</AtkEtcInstallRoot>
+    <AtkEtcInstallRoot>..\..\..\..\vs10\$(Platform)</AtkEtcInstallRoot>
     <CopyDir>$(AtkEtcInstallRoot)</CopyDir>
     <AtkDoInstall>
 mkdir $(CopyDir)\bin
@@ -99,7 +99,7 @@ copy $(SolutionDir)$(Configuration)\$(Platform)\bin\*-$(AtkApiVersion).lib $(Cop
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\..;..\..\..\atk;$(AtkEtcInstallRoot)\include;$(AtkEtcInstallRoot)\include\glib-2.0;$(AtkEtcInstallRoot)\lib\glib-2.0\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>HAVE_CONFIG_H;G_DISABLE_DEPRECATED;G_DISABLE_SINGLE_INCLUDES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_CONFIG_H;G_DISABLE_SINGLE_INCLUDES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ForcedIncludeFiles>msvc_recommended_pragmas.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>

@@ -1,14 +1,14 @@
 Name:		atk
 Summary:	Accessibility Toolkit
-Version:	2.2.0
+Version:	2.6.0
 Release:	1
 License:	LGPL
 Group:		Development/Libraries
 Source:		ftp://ftp.gimp.org/pub/gtk/v2.6/%{name}-%{version}.tar.gz
 BuildRoot:	/var/tmp/%{name}-%{version}-root
 URL:		http://www.gtk.org
-Requires:	glib2 >= 2.0.0
-BuildRequires:	glib2-devel >= 2.0.0
+Requires:	glib2 >= 2.31.2
+BuildRequires:	glib2-devel >= 2.31.2
 
 %description
 Handy library of accessibility functions. Development libs and headers
