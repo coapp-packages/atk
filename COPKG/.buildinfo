@@ -8,7 +8,7 @@
 #product-info  {
     product-name: "atk";
     version: "${package-version}";
-    original-source-location: "http://ftp.acc.umu.se/pub/GNOME/sources/atk/2.2/atk-2.2.0.tar.bz2";
+    original-source-location: "http://ftp.acc.umu.se/pub/GNOME/sources/atk/2.6/atk-2.6.0.tar.bz2";
     original-source-website: "http://ftp.acc.umu.se/pub/GNOME/sources/atk";
     license: "LGPL 2";
     packager: "Vincent Povirk <madewokherd@gmail.com>";
